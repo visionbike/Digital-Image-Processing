@@ -1,0 +1,13 @@
+*** EXECUTING TIME ***
+
+*** 2D DCT using Fast DCT ***
+Forward tranform: 0.53s
+Inverse tranform: 0.52s
+
+*** 2D DCT using 1D DCT ***
+Forward tranform: 1.05s
+Inverse tranform: 1.55s
+
+*** Basic 2D DCT ***
+Forward tranform: 8.32s
+Inverse tranform: 11.94s
