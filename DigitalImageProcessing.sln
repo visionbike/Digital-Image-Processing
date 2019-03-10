@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.438
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "histogram-equalization", "histogram-equalization\histogram-equalization.vcxproj", "{B2912BA0-67A0-44AE-9451-D6F6BA55473D}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "spatial-image-filters", "spatial-image-filters\spatial-image-filters.vcxproj", "{D9F56694-608D-451C-BFCC-82E7AD1BB291}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{B2912BA0-67A0-44AE-9451-D6F6BA55473D}.Release|x64.Build.0 = Release|x64
 		{B2912BA0-67A0-44AE-9451-D6F6BA55473D}.Release|x86.ActiveCfg = Release|Win32
 		{B2912BA0-67A0-44AE-9451-D6F6BA55473D}.Release|x86.Build.0 = Release|Win32
+		{D9F56694-608D-451C-BFCC-82E7AD1BB291}.Debug|x64.ActiveCfg = Debug|x64
+		{D9F56694-608D-451C-BFCC-82E7AD1BB291}.Debug|x64.Build.0 = Debug|x64
+		{D9F56694-608D-451C-BFCC-82E7AD1BB291}.Debug|x86.ActiveCfg = Debug|Win32
+		{D9F56694-608D-451C-BFCC-82E7AD1BB291}.Debug|x86.Build.0 = Debug|Win32
+		{D9F56694-608D-451C-BFCC-82E7AD1BB291}.Release|x64.ActiveCfg = Release|x64
+		{D9F56694-608D-451C-BFCC-82E7AD1BB291}.Release|x64.Build.0 = Release|x64
+		{D9F56694-608D-451C-BFCC-82E7AD1BB291}.Release|x86.ActiveCfg = Release|Win32
+		{D9F56694-608D-451C-BFCC-82E7AD1BB291}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
