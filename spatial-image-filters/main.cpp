@@ -10,8 +10,9 @@
 int main(int argc, char** argv) {
 	// Get parameters
 	char* imageName = nullptr;
-	int mode = 1;	// 1: average filter, 2: gaussian filter, 3: median filter
-	int kernelSize = 3;
+	int mode = 3;	// 1: average filter, 2: gaussian filter, 3: median filter
+	int kernelSize = 7;
+	double sigma = 1.0;
 
 	std::string instruction = "spatial-image-filters.exe <imageName> <mode> <kernelSize> <sigma - optional>\n\n";
 	instruction += "<mode>: 1 for average filter; 2 for gaussian filter; 3 for median filter\n";
@@ -61,12 +62,8 @@ int main(int argc, char** argv) {
 	case 2: {
 		// Gaussian Filter
 		windowName = "Gaussian Filter - k = " + std::to_string(kernelSize) + ", sigma = " + std::to_string(sigma);
-		int* kernel = int[9];
-		kernel[0] = kernel[2] = kernel[6] = kernel[8] = 0;
-		kernel[1] = kernel[3] = kernel[5] = kernel[7] = 2;
-		kernel[4] = 4;
-		kernelSize = 3
-			dst = gaussianFilter(img, kernelSize, kernel);
+		int* kernel = createGaussianKernel(kernelSize, sigma);
+		dst = gaussianFilter(img, kernelSize, kernel);
 		break;
 	}
 	case 3: {

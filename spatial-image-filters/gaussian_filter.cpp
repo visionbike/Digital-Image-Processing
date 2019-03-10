@@ -1,5 +1,40 @@
 #include "gaussian_filter.h"
 
+int* createGaussianKernel(int kernelSize, double sigma) {
+	// kernelSize should be odd number
+	assert(kernelSize % 2 == 1);
+
+	// Get padding size
+	int pad = kernelSize / 2;
+
+	// Get number of pixel in kernel
+	int nPixel = kernelSize * kernelSize;
+
+	// create kernel (double type)
+	double * kernel = new double[nPixel];
+
+	// Compute the values in kernel, following Gaussian distribution
+	double a = 2.0 * sigma * sigma;
+	for (int y = -pad; y <= pad; ++y) {
+		for (int x = -pad; x <= pad; ++x) {
+			double b = std::exp(-(double)(x * x + y * y) / a) / (a * PI);
+			kernel[(y + pad) * kernelSize + (x + pad)] = b;
+		}
+	}
+
+	// Normalize Gaussian kernel to integers
+	double c = kernel[0];
+	int * dstKernel = new int[nPixel];
+	for (int i = 0; i < nPixel; ++i) {
+		dstKernel[i] = static_cast<int>(std::round(dstKernel[i] / c));
+	}
+
+	std::free(kernel);
+	kernel = nullptr;
+
+	return dstKernel;
+}
+
 cv::Mat gaussianFilter(const cv::Mat& src, int kernelSize, int* kernel) {
 	// kernelSize should be odd number
 	assert(kernelSize % 2 == 1);
@@ -14,7 +49,7 @@ cv::Mat gaussianFilter(const cv::Mat& src, int kernelSize, int* kernel) {
 
 	// Add border to image
 	int extendSize = 2 * pad;
-	cv::Mat tmp = cv::Mat::zeros(cv::Size(src.cols + 2 * pad, src.rows + 2 * pad), src.type());
+	cv::Mat tmp = cv::Mat::zeros(cv::Size(src.cols + extendSize, src.rows + extendSize), src.type());
 	cv::copyMakeBorder(src, tmp, pad, pad, pad, pad, cv::BORDER_REPLICATE);
 
 	// Define result image
